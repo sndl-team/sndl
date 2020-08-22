@@ -3,6 +3,7 @@
 <div style="text-align: center">
     <i>
         A cli tool to automate tasks on the senturion site.
+        <img src="https://travis-ci.com/sndl-team/sndl.svg?branch=master" />
     </i>
 </div>
 
