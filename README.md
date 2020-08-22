@@ -3,6 +3,7 @@
 <div style="text-align: center">
     <i>
         A cli tool to automate tasks on the senturion site.
+        <img src="https://travis-ci.com/sndl-team/sndl.svg?branch=master" />
     </i>
 </div>
 
@@ -57,6 +58,11 @@ that they exist.
 
 There is an [adr](adr/009-avoid-repeat-downloads.md) to define methods to avoid this problem
 but this wont be implemented until a v2 release.
+
+# Communication
+
+We utilitze discord to communicate, if you would like to join our discord server then please reach out
+to @Woodenikki.
 
 ---
 
