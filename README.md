@@ -4,6 +4,7 @@
     <i>
         A cli tool to automate tasks on the senturion site.
         <img src="https://travis-ci.com/sndl-team/sndl.svg?branch=master" />
+        <a href="https://www.codefactor.io/repository/github/sndl-team/sndl"><img src="https://www.codefactor.io/repository/github/sndl-team/sndl/badge" alt="CodeFactor" /></a>
     </i>
 </div>
 
