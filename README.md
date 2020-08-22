@@ -24,6 +24,8 @@ makefile replacement then run the following
 $ task build
 ```
 
+We are working on a devcontainer for easier onboarding.
+
 # ADR
 
 The adr folder contains all the accepted, proposed, rejected, and 
