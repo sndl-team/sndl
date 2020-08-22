@@ -1,4 +1,4 @@
-module github.com/misterbianco/sndl
+module github.com/sndl-team/sndl
 
 go 1.14
 
