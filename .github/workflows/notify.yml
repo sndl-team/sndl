@@ -14,4 +14,4 @@ jobs:
       uses: Ilshidur/action-discord@master
       with:
         args: '''{{ EVENT_PAYLOAD.sender.login }} has made a pull request on {{ EVENT_PAYLOAD.repository.name }}. 
-        {{ EVENT_PAYLOAD.base.label }} -> {{ EVENT_PAYLOAD.head.label}} | {{ EVENT_PAYLOAD.compare }}'''
+        {{ EVENT_PAYLOAD.base.label }} -> {{ EVENT_PAYLOAD.head.label}} |> {{ EVENT_PAYLOAD.compare }}'''
