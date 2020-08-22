@@ -9,12 +9,23 @@
 </div>
 
 
+# Development
+
+[Precommit](https://pre-commit.com/) is used in this repo. To setup the
+precommit hooks. Just run:
+
+```bash
+$ pip install pre-commit
+```
+
+Then if/when you commit to the repo our checks will run.
+
 # Start
 
 To build the project from source just clone the repo and run
 
 ```bash
-$ go build -o sndl main.go 
+$ go build -o sndl main.go
 ```
 
 If you would like to utilitze [go-task](https://taskfile.dev) as a
@@ -28,7 +39,7 @@ $ task build
 
 # ADR
 
-The adr folder contains all the accepted, proposed, rejected, and 
+The adr folder contains all the accepted, proposed, rejected, and
 deprecated adr's (architectural design records) for this project.
 Any person may refer to this directory for information regarding
 decisions and may use this folder to propose new changes.
@@ -37,7 +48,7 @@ Proposed adr's must follow the convention of all other adr's.
 
 # Assets
 
-The asset folder contains any asset that provides no code or 
+The asset folder contains any asset that provides no code or
 architectural benefit but does influence or otherwise improve the
 project.
 
@@ -52,7 +63,7 @@ SEARCH TERM:ID
 SEARCH TERM:ID
 ```
 
-This allows us to easily parse and download the specified files. We use a specific 
+This allows us to easily parse and download the specified files. We use a specific
 naming scheme for the files to ensure we dont repeat downloads. Unfortunately we don't
 have plans right now for implementing a mechanism to remember files other than to check
 that they exist.
@@ -70,5 +81,3 @@ to @Woodenikki.
 Future adrs:
 
 - usage docs
-
-
