@@ -10,8 +10,6 @@ jobs:
     - name: Discord notification
       env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        DISCORD_USERNAME: Little Cheese
-        DISCORD_AVATAR: https://github.com/sndl-team/sndl/raw/master/assets/facebook_profile_image.png
       uses: Ilshidur/action-discord@master
       with:
         args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has a new pull request.'
