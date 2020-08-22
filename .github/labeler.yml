@@ -1,0 +1,20 @@
+"@sndl/cli":
+  - cmd/*
+
+"@sndl/root":
+  - main.go
+
+"@sndl/assets":
+  - assets/*
+
+"@sndl/actions":
+  - .github/*
+
+"@sndl/container":
+  - .devcontainer/*
+
+"@sndl/requirements":
+  - go.mod
+
+"@sndl/adr":
+  - adr/*
