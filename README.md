@@ -1,13 +1,12 @@
 ![logo](assets/twitter_header_photo_2.png)
 
-<p style="text-align:center">
+<div style="text-align: center">
     <i>
         A cli tool to automate tasks on the senturion site.
+        <img src="https://travis-ci.com/sndl-team/sndl.svg?branch=master" />
     </i>
-</p>
+</div>
 
-
----
 
 # Start
 
@@ -24,7 +23,7 @@ makefile replacement then run the following
 $ task build
 ```
 
-We are working on a devcontainer for easier onboarding.
+**We are working on a devcontainer for easier onboarding.**
 
 # ADR
 
@@ -41,9 +40,34 @@ The asset folder contains any asset that provides no code or
 architectural benefit but does influence or otherwise improve the
 project.
 
+# Config
+
+This project doesnt include a configuration file to read from
+but we do utilize a file in our mirror subcommand. The format of that
+file is:
+
+```text
+SEARCH TERM:ID
+SEARCH TERM:ID
+```
+
+This allows us to easily parse and download the specified files. We use a specific 
+naming scheme for the files to ensure we dont repeat downloads. Unfortunately we don't
+have plans right now for implementing a mechanism to remember files other than to check
+that they exist.
+
+There is an [adr](adr/009-avoid-repeat-downloads.md) to define methods to avoid this problem
+but this wont be implemented until a v2 release.
+
+# Communication
+
+We utilitze discord to communicate, if you would like to join our discord server then please reach out
+to @Woodenikki.
+
+---
+
 Future adrs:
 
 - usage docs
-- logo
 
 
