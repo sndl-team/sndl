@@ -26,34 +26,43 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/sndl-team/sndl/client"
+
 	"github.com/spf13/cobra"
 )
+
+var resolution string
+
+var server int
 
 // downloadCmd represents the download command
 var downloadCmd = &cobra.Command{
 	Use:   "download",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "A Command to download media",
+	Long:  `A Command that given a query will allow the user to download media`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("download called")
+		var client = client.DownloadClient{
+			Query:      query,
+			Resolution: resolution,
+			Server:     server,
+			Movies:     movies,
+			Series:     series}
+
+		fmt.Println(client.Query)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(downloadCmd)
 
-	// Here you will define your flags and configuration settings.
+	downloadCmd.Flags().StringVarP(&query, "query", "q", "", "The search term")
+	downloadCmd.MarkFlagRequired("query")
 
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// downloadCmd.PersistentFlags().String("foo", "", "A help for foo")
+	downloadCmd.Flags().StringVarP(&resolution, "resolution", "r", "720p", "The resolution to download media at (720p or 1080p")
 
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// downloadCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// 0 should default to suggested...
+	downloadCmd.Flags().IntVarP(&server, "server", "x", 0, "The server to use by ID? || Name?")
+
+	downloadCmd.Flags().BoolVarP(&movies, "movies", "m", false, "Whether to search movies")
+	downloadCmd.Flags().BoolVarP(&series, "series", "s", false, "Whether to search series")
 }

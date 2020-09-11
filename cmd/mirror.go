@@ -26,21 +26,23 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/sndl-team/sndl/client"
+
 	"github.com/spf13/cobra"
 )
+
+var path string
+var delta bool
 
 // mirrorCmd represents the mirror command
 var mirrorCmd = &cobra.Command{
 	Use:   "mirror",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "A command to mirror from a sndl.txt file",
+	Long: `A command that given an sndl.txt will attempt
+to mirror the listings to the local filesystem`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("mirror called")
+		var client = client.MirrorClient{Path: path, Delta: delta}
+		fmt.Println(client.Path)
 	},
 }
 
@@ -56,4 +58,12 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// mirrorCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	mirrorCmd.Flags().StringVarP(&path, "path", "p", ".", "The path to save files to")
+	mirrorCmd.MarkFlagRequired("path")
+
+	// This only aids shell completion
+	// This doesnt enforce that the path exists!
+	mirrorCmd.MarkFlagDirname("path")
+
+	mirrorCmd.Flags().BoolVarP(&delta, "delta", "d", false, "Show what has updated without dowloading")
 }

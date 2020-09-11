@@ -1,6 +1,6 @@
 module github.com/sndl-team/sndl
 
-go 1.14
+go 1.15
 
 require (
 	github.com/marouni/adr v0.1.0 // indirect
