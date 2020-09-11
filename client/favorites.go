@@ -1,5 +1,6 @@
 package client
 
 type FavoritesClient struct {
-	Mirror bool
+	Mirror  bool
+	Verbose bool
 }

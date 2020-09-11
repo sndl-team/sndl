@@ -41,7 +41,7 @@ var mirrorCmd = &cobra.Command{
 	Long: `A command that given an sndl.txt will attempt
 to mirror the listings to the local filesystem`,
 	Run: func(cmd *cobra.Command, args []string) {
-		var client = client.MirrorClient{Path: path, Delta: delta}
+		var client = client.MirrorClient{Path: path, Delta: delta, Verbose: verbose}
 		fmt.Println(client.Path)
 	},
 }

@@ -4,5 +4,6 @@ type PopularClient struct {
 	Series bool
 	Movies bool
 
-	New bool
+	New     bool
+	Verbose bool
 }

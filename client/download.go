@@ -6,6 +6,7 @@ type DownloadClient struct {
 
 	Server int
 
-	Movies bool
-	Series bool
+	Movies  bool
+	Series  bool
+	Verbose bool
 }

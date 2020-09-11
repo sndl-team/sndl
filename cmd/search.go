@@ -38,8 +38,14 @@ var searchCmd = &cobra.Command{
 	Long: `Given a query term, perform a search and return 
 any matching media.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		var client = client.SearchClient{Query: query, Series: series, Movies: movies}
+		var client = client.SearchClient{Query: query, Series: series, Movies: movies, Verbose: verbose}
 		fmt.Println(client.Query)
+
+		client.Search()
+
+		if verbose {
+			fmt.Println("Verbose")
+		}
 	},
 }
 

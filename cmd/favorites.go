@@ -40,7 +40,7 @@ var favoritesCmd = &cobra.Command{
 	Long: `A command to download all the media in your favorites
 and save it to the local filesystem`,
 	Run: func(cmd *cobra.Command, args []string) {
-		var client = client.FavoritesClient{Mirror: mirror}
+		var client = client.FavoritesClient{Mirror: mirror, Verbose: verbose}
 		fmt.Println(client.Mirror)
 	},
 }

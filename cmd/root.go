@@ -40,6 +40,8 @@ var query string
 var movies bool
 var series bool
 
+var verbose bool
+
 var rootCmd = &cobra.Command{
 	Use:   "sndl",
 	Short: "A downloading utility for senturion",
@@ -58,6 +60,9 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.sndl.yaml)")
+
+	// Add a verbose flag to all commands for logging output
+	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output")
 }
 
 // initConfig reads in config file and ENV variables if set.

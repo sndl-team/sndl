@@ -40,7 +40,7 @@ var popularCmd = &cobra.Command{
 	Long: `A command to list the current most popular movies and 
 series`,
 	Run: func(cmd *cobra.Command, args []string) {
-		var client = client.PopularClient{Series: series, Movies: movies, New: new}
+		var client = client.PopularClient{Series: series, Movies: movies, New: new, Verbose: verbose}
 		fmt.Println(client.New)
 	},
 }

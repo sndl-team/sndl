@@ -46,7 +46,8 @@ var downloadCmd = &cobra.Command{
 			Resolution: resolution,
 			Server:     server,
 			Movies:     movies,
-			Series:     series}
+			Series:     series,
+			Verbose:    verbose}
 
 		fmt.Println(client.Query)
 	},
