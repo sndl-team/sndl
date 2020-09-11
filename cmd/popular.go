@@ -26,34 +26,30 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/sndl-team/sndl/client"
+
 	"github.com/spf13/cobra"
 )
+
+var new bool
 
 // popularCmd represents the popular command
 var popularCmd = &cobra.Command{
 	Use:   "popular",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "A command to display the current popular media",
+	Long: `A command to list the current most popular movies and 
+series`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("popular called")
+		var client = client.PopularClient{Series: series, Movies: movies, New: new, Verbose: verbose}
+		fmt.Println(client.New)
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(popularCmd)
 
-	// Here you will define your flags and configuration settings.
+	popularCmd.Flags().BoolVarP(&series, "series", "s", false, "Whether to list series")
+	popularCmd.Flags().BoolVarP(&movies, "movies", "m", true, "Whether to list movies")
 
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// popularCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// popularCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	popularCmd.Flags().BoolVarP(&new, "new", "n", false, "List new episodes, ignores movies flag!")
 }
