@@ -59,7 +59,13 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.sndl.yaml)")
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.sndl.yaml)")
+
+	rootCmd.PersistentFlags().StringP("senturion_username", "u", "", "Username to use to login")
+	rootCmd.PersistentFlags().StringP("senturion_password", "p", "", "Username to use to login")
+
+	viper.BindPFlag("senturion_username", rootCmd.PersistentFlags().Lookup("senturion_username"))
+	viper.BindPFlag("senturion_password", rootCmd.PersistentFlags().Lookup("senturion_password"))
 
 	// Add a verbose flag to all commands for logging output
 	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose output")

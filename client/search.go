@@ -1,8 +1,6 @@
 package client
 
-import (
-	"github.com/rs/zerolog/log"
-)
+import "github.com/sndl-team/sndl/lib"
 
 type SearchClient struct {
 	Query   string
@@ -11,9 +9,10 @@ type SearchClient struct {
 	Verbose bool
 }
 
-// Sample method to test logging mechanism
-func (searchClient SearchClient) Search() {
-	if searchClient.Verbose {
-		log.Print("hello world")
-	}
+func (searchClient SearchClient) Run(username string, password string) {
+	var client = lib.NewSenturionClient()
+
+	// These function calls should likely be chained. This will require some renaming.
+	client.Init()
+	client.Login(username, password)
 }

@@ -10,4 +10,5 @@ require (
 	github.com/spf13/cobra v1.0.0
 	github.com/spf13/viper v1.7.1
 	github.com/urfave/cli v1.22.4 // indirect
+	golang.org/x/net v0.0.0-20190620200207-3b0461eec859
 )

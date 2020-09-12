@@ -24,28 +24,28 @@ THE SOFTWARE.
 package cmd
 
 import (
-	"fmt"
+	"log"
 
 	"github.com/sndl-team/sndl/client"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 // searchCmd represents the search command
 var searchCmd = &cobra.Command{
 	Use:   "search",
 	Short: "Subcommand to search senturion for a query",
-	Long: `Given a query term, perform a search and return 
+	Long: `Given a query term, perform a search and return
 any matching media.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		var client = client.SearchClient{Query: query, Series: series, Movies: movies, Verbose: verbose}
-		fmt.Println(client.Query)
 
-		client.Search()
-
-		if verbose {
-			fmt.Println("Verbose")
+		if viper.GetString("senturion_username") == "" || viper.GetString("senturion_password") == "" {
+			log.Fatal("Username and password must be specified.")
 		}
+
+		var client = client.SearchClient{Query: query, Series: series, Movies: movies, Verbose: verbose}
+		client.Run(viper.GetString("senturion_username"), viper.GetString("senturion_password"))
 	},
 }
 
